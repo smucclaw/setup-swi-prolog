@@ -26,9 +26,7 @@ runs:
 
     - name: Setup SWI-Prolog
       shell: bash
-      run: >
-        cd ${{ github.action_path }}
-        bun run src/setup-swi-prolog.js
+      run: cd ${{ github.action_path }} && bun run src/setup-swi-prolog.js
 
 branding:
   icon: 'box'
