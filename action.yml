@@ -21,9 +21,11 @@ runs:
         auto-install: true
 
     - name: Install npm dependencies
+      shell: bash
       run: bun install
 
     - name: Setup SWI-Prolog
+      shell: bash
       run: bun src/setup-swi-prolog.js
 
 branding:
