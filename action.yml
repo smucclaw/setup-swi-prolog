@@ -13,8 +13,18 @@ inputs:
     default: latest
 
 runs:
-  using: 'node20'
-  main: 'src/setup-swi-prolog.js'
+  using: 'composite'
+  steps:
+    - name: Setup proto and bun 
+      uses: moonrepo/setup-toolchain@v0
+      with:
+        auto-install: true
+
+    - name: Install npm dependencies
+      run: bun install
+
+    - name: Setup SWI-Prolog
+      run: bun src/setup-swi-prolog.js
 
 branding:
   icon: 'box'
