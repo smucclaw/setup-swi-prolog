@@ -26,6 +26,9 @@ runs:
 
     - name: Setup SWI-Prolog
       shell: bash
+      env:
+        SWI_PROLOG_BRANCH: ${{ inputs.swi-prolog-branch }}
+        SWI_PROLOG_VERSION: ${{ inputs.swi-prolog-version }}
       run: cd ${{ github.action_path }} && bun run src/setup-swi-prolog.js
 
 branding:

@@ -1,7 +1,7 @@
-const {exec} = require('@actions/exec')
-const path = require('path')
+const {exec} = require('@actions/exec');
+const path = require('path');
 
-module.exports = {installSWIProlog}
+module.exports = {installSWIProlog};
 
 /**
  * Install SWI-Prolog.
@@ -10,5 +10,5 @@ module.exports = {installSWIProlog}
  * @param {string} version
  */
 async function installSWIProlog(branch,version) {
-  await exec(path.join(__dirname, 'install-swi-prolog-ubuntu'), [branch,version])
+  await exec(path.join(__dirname, 'install-swi-prolog-ubuntu'), [branch,version]);
 }

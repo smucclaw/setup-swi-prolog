@@ -1,24 +1,23 @@
-const core = require('@actions/core')
-const {installSWIProlog} = require('./installer')
+const {installSWIProlog} = require('./installer');
 
 main().catch(err => {
-  core.setFailed(err.message)
-})
+  core.setFailed(err.message);
+});
 
 async function main() {
-  checkPlatform()
+  checkPlatform();
 
-  const branch  = core.getInput('swi-prolog-branch', {required: false})
-  const version = core.getInput('swi-prolog-version', {required: true})
+  const branch  = process.env.SWI_PROLOG_BRANCH;
+  const version = process.env.SWI_PROLOG_VERSION;
 
-  console.log(`##[group]Installing SWI-Prolog ${version}`)
-  await installSWIProlog(branch,version)
-  console.log(`##[endgroup]`)
+  console.log(`##[group]Installing SWI-Prolog ${version}`);
+  await installSWIProlog(branch, version);
+  console.log(`##[endgroup]`);
 }
 
 function checkPlatform() {
   if (process.platform !== 'linux')
     throw new Error(
       '@logtalk-actions/setup-swi-prolog only supports Ubuntu Linux at this time'
-    )
+    );
 }
