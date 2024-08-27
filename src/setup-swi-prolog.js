@@ -1,4 +1,4 @@
-const {installSWIProlog} = require('./installer');
+import { installSWIProlog } from './installer';
 
 main().catch(err => {
   core.setFailed(err.message);
