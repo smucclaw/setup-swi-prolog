@@ -1,4 +1,4 @@
-import { core } from '@actions/core';
+import * as core from '@actions/core';
 import { installSWIProlog } from './installer';
 
 main().catch(err => {
