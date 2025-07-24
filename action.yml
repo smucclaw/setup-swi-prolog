@@ -22,7 +22,7 @@ runs:
 
     - name: Install npm dependencies
       shell: bash
-      run: cd ${{ github.action_path }} && bun install --linker=isolated
+      run: cd ${{ github.action_path }} && bun install
 
     - name: Setup SWI-Prolog
       shell: bash
